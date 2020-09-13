@@ -7,3 +7,12 @@
 
 ### 数组
 ![image](https://github.com/larrySmile02/algorithm016/blob/master/Week_01/image/%E6%95%B0%E7%BB%84.png)
+
+### 栈
+- 先进后出
+- push 、pop操作时间复杂度O(1)
+- search操作时间复杂度O(n)
+- pop、search操作被sychronized修饰，是线程安全操作
+### Queue、Deque
+- Queue先进先出，Deque有可以满足先进先出也可以满足先进后出。
+- Deque是接口，常用的实现类有LinkedList,底层实现原理是双向链表。
