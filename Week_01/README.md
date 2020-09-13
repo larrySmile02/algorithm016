@@ -1,4 +1,4 @@
-学习笔记
+
 ### 如何高效学习
 ![image](https://github.com/larrySmile02/algorithm016/blob/master/Week_01/image/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png)
 
