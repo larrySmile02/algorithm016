@@ -16,3 +16,48 @@
 ### Queue、Deque
 - Queue先进先出，Deque有可以满足先进先出也可以满足先进后出。
 - Deque是接口，常用的实现类有LinkedList,底层实现原理是双向链表。
+### 单调栈代表题
+[滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/) 
+
+```
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums==null||nums.length==0||k==1) return nums;
+        SpecialStack stack=new SpecialStack();
+        int[]res=new int[nums.length-k+1];
+        int index=0;
+        for(int i=0;i<nums.length;i++){
+            if(i<k-1){
+                stack.push(nums[i]);
+            }else{
+                stack.push(nums[i]);
+                res[index]=stack.max();
+                stack.pop(nums[i-k+1]);
+                index++;
+            }
+        }
+        return res;
+        
+    }
+    //典型的单调栈
+    class SpecialStack {
+        LinkedList<Integer> linkedList=new LinkedList<>();
+        
+        public void push(int i){
+            while(!linkedList.isEmpty() && linkedList.peekLast()<i){
+                linkedList.removeLast();
+            }
+            linkedList.addLast(i);
+        }
+
+        public void pop(int i){
+            if(linkedList.peekFirst()==i) linkedList.removeFirst();
+
+        }
+
+        public int max(){
+            return linkedList.peekFirst();
+        }
+    }
+}
+```
