@@ -61,3 +61,26 @@ class Solution {
     }
 }
 ```
+
+[柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)单调栈最简洁题解：当前元素做哨兵
+```
+public int largestRectangleArea(int[] heights) {
+        if(heights==null||heights.length==0)return 0;
+        int len=heights.length;
+        if(len==1)return heights[0];
+        int[]myHeights=new int[len+2];
+        System.arraycopy(heights,0,myHeights,1,len);
+        LinkedList<Integer> linkedlist=new LinkedList<>();
+        linkedlist.addLast(0);
+        int res=0;
+        for(int i=1;i<myHeights.length;i++){
+            while(myHeights[i]<myHeights[linkedlist.peekLast()]){
+                int h=myHeights[linkedlist.pollLast()];
+                int w=i-linkedlist.peekLast()-1;
+                res=Math.max(res,w*h);
+            }
+            linkedlist.addLast(i);
+        }
+        return res;
+    }
+```
