@@ -84,3 +84,24 @@ public int largestRectangleArea(int[] heights) {
         return res;
     }
 ```
+[接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)的解法与[柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)几乎相同，当前元素做哨兵。时间复杂度O(n)：每个元素进出一次队列,空间复杂度O(n):新建一个LinkedList
+```
+ public int trap(int[] height) {
+        if(height==null||height.length<3)return 0;
+        LinkedList<Integer> linkedlist=new LinkedList<>();
+        int res=0;
+        for(int i=0;i<height.length;i++){
+            while(!linkedlist.isEmpty() && height[i]>height[linkedlist.peekLast()]){
+                int cur=linkedlist.pollLast();
+                //最容易遗漏的判断
+                if(linkedlist.isEmpty()) continue;
+                int h=Math.min(height[i],height[linkedlist.peekLast()])-height[cur];
+                int w=i-linkedlist.peekLast()-1;
+                res+=w*h;
+            }
+            linkedlist.addLast(i);
+        }
+        return res;
+
+    }
+```
