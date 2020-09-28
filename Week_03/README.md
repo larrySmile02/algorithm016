@@ -132,8 +132,7 @@ List<List<Integer>> res=new ArrayList<>();
        }
     }
 ```
-作者决策树的剪枝过程：
-![image](http://note.youdao.com/yws/res/34373/E180F29479DD484B8C3E9E225AE5DEFB)
+
 
 #### 组合
 [组合](https://leetcode-cn.com/problems/combinations/)适用于回溯法，同时分析一下过程可以进行剪枝优化。题解：
@@ -163,5 +162,5 @@ List<List<Integer>> res=new ArrayList<>();
 ```
 分析决策树，学习剪枝优化
 
-![image](https://note.youdao.com/src/8F2903C0FDCF4DA5B6E0BACBF10E7B58)
+![image](https://github.com/larrySmile02/algorithm016/blob/master/Week_03/image/%E5%86%B3%E7%AD%96%E6%A0%91.jpg)
 
